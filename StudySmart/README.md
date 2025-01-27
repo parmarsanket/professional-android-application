@@ -1,25 +1,17 @@
-## Table of Contents
-- [About](#about)
-- [Link](#link)
-- [Release](#release)
-- [Releases](#releases)
-- [Packages](#packages)
+#Project 1: StudySmart 
 
----
+     StudySmarApp is my first industry level project complete which reference from YT 
+and cover most for concept and enhance skills better way form this project 
+ 
+## Cover Topic
+- Jectpack-Compose-UI 
+- Oop
+- Room-DB
+- Compose-destination
+- downgrade-Android-Studio
+- Dagger-hilt
+- Service
 
-## About
-This is the description of the project, including its features and goals.
+## Images
 
-## Link
-Provide a link to important resources or documentation here.
-- [Example Link](https://example.com)
-
-## Release
-Information about the current release of the project, including version numbers, dates, etc.
-
-## Releases
-- **v1.0.0** - Initial release.
-- **v1.1.0** - Bug fixes.
-
-## Packages
-No packages published yet.
+![Image 1](images/img1.jpg) ![Image 2](images/img2.jpg) ![Image 3](images/img3.jpg) ![Image 4](images/img4.jpg)
