@@ -14,4 +14,9 @@ and cover most for concept and enhance skills better way form this project
 
 ## Images
 
-![Image 1](images/img1.jpg) ![Image 2](images/img2.jpg) ![Image 3](images/img3.jpg) ![Image 4](images/img4.jpg)
+<p align="center">
+  <img src="images/img1.jpg" alt="Image 1" width="200" />
+  <img src="images/img2.jpg" alt="Image 2" width="200" />
+  <img src="images/img3.jpg" alt="Image 3" width="200" />
+  <img src="images/img4.jpg" alt="Image 4" width="200" />
+</p>
