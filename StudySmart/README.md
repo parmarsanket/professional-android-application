@@ -1,7 +1,7 @@
 # Project 1: StudySmart 
 
 StudySmarApp is my first industry level project complete which reference from YT 
-and cover most for concept and enhance skills better way form this project 
+and cover most of concept and enhance skills better way form this project 
  
 ## Cover Topic
 - Jectpack-Compose-UI 
