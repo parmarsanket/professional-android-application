@@ -29,11 +29,21 @@ object AppModule{
         ).build()
     }
     @Provides
-    fun provideTitleDao(database:titleDatabased):TitleDao= database.user()
+    fun provideTitleDao(database:titleDatabased):TitleDao
+    {
+        return database.user()
+    }
 
     @Provides
-    fun provideuserRepository(tilteDao: TitleDao):Repository = Repository(titleDao = tilteDao)
+    fun provideuserRepository(tilteDao: TitleDao):Repository
+    {
+        return Repository(titleDao = tilteDao)
+    }
 
     @Provides
-    fun provideuserUseCase(repository: Repository):getTitles= getTitles(repository = repository)
+    fun provideuserUseCase(repository: Repository):getTitles
+    {
+        return getTitles(repository)
+    }
+
 }
