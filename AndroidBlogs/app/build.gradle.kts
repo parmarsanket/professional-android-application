@@ -2,17 +2,18 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.dagger.hilt.android") // Hilt plugin
-    id("com.google.devtools.ksp") version "2.0.0-1.0.22"
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
-    namespace = "com.example.curd"
+    namespace = "com.example.androidblogs"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.curd"
-        minSdk = 24
+        applicationId = "com.example.androidblogs"
+        minSdk = 21
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -39,6 +40,9 @@ android {
     buildFeatures {
         compose = true
     }
+    room {
+        schemaDirectory("$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -59,12 +63,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Room dependencies
-    implementation(libs.room.runtime)
-    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.compose.markdown)
+
+    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.coil)
+    implementation(libs.bundles.koin)
+
+    //Room
     implementation(libs.room.ktx)
-    // Hilt dependencies
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
 }
