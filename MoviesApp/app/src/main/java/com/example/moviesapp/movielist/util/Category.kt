@@ -1,4 +1,6 @@
 package com.example.moviesapp.movielist.util
 
-class Category {
+object Category {
+    const val POPULAR = "popular"
+    const val UPCOMING = "upcoming"
 }

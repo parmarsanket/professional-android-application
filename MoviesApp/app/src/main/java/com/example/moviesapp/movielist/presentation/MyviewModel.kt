@@ -1,4 +1,4 @@
-package com.example.moviesapp.movielist
+package com.example.moviesapp.movielist.presentation
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
