@@ -1,4 +1,7 @@
 package com.example.notesapp.Notes.util
 
-class OrderType {
+sealed class OrderType {
+    object Ascending:OrderType()
+    object Descending:OrderType()
+
 }
