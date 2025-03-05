@@ -1,3 +1,9 @@
 package com.example.androidblogs.presentation.blog_list.BlogContent
 
-data class BlogContentState()
+import com.example.androidblogs.domain.Blog
+
+data class BlogContentState(
+    val isLoading: Boolean = false,
+    val errorMessage:String?=null,
+    val blog: Blog?=null
+)

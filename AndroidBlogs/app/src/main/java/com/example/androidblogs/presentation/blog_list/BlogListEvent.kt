@@ -1,4 +1,5 @@
 package com.example.androidblogs.presentation.blog_list
 
-class BlogListEvent {
+sealed interface BlogListEvent {
+    data class Error( val error:String):BlogListEvent
 }

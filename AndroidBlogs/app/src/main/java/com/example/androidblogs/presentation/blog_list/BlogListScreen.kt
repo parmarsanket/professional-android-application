@@ -1,5 +1,7 @@
 package com.example.androidblogs.presentation.blog_list
 
+import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,16 +14,37 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import com.example.androidblogs.domain.Blog
 import com.example.androidblogs.presentation.blog_list.Components.BlogCard
+import io.ktor.events.Events
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 fun BlogListScreen(modifier: Modifier = Modifier,
-                   state: BlogListState
+                   state: BlogListState,
+                   event:Flow<BlogListEvent >,
+                   onBlogCardClick:(Int)->Unit
 ) {
+    val context=   LocalContext.current
+    LaunchedEffect (key1 =  Unit)
+    {
+        event.collect{
+            event->
+            when(event)
+            {
+                is BlogListEvent.Error -> {
+                    Toast.makeText(context,event.error,Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
 
     Column(
         modifier = modifier.fillMaxSize()
@@ -33,9 +56,12 @@ fun BlogListScreen(modifier: Modifier = Modifier,
            verticalArrangement = Arrangement.spacedBy(10.dp),
            horizontalArrangement = Arrangement.spacedBy(10.dp)
        ) {
+          
            items(state.blogs)
            {blog->
-               BlogCard(blog=blog)
+               BlogCard(
+                   modifier = Modifier.clickable { onBlogCardClick(blog.id) },
+                   blog=blog)
            }
        }
 
@@ -63,5 +89,6 @@ private fun Blogscreen() {
         contantUrl = "",
         contant = ""
     ))
-    BlogListScreen(state = BlogListState(blogs = list))
+    BlogListScreen(state = BlogListState(blogs = list), event = emptyFlow(), onBlogCardClick = {})
+
 }
