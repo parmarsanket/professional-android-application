@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "149615298631",
+    "project_id": "shpping-app-de75f",
+    "storage_bucket": "shpping-app-de75f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149615298631:android:fe340998c1d7932e814962",
+        "android_client_info": {
+          "package_name": "com.example.shppingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuTWlLUvJj9w_oGyhkTUDC4ygQYq-E7KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
