@@ -10,7 +10,7 @@ activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 retrofit2KotlinxSerializationConverter = "0.8.0"
 room = "2.6.1"
-navigationCompose = "2.7.7"
+navigationCompose = "2.8.8"
 ksp = "2.0.0-1.0.21"
 retrofit = "2.11.0"
 okhttpLogging = "5.0.0-alpha.11"
@@ -18,7 +18,7 @@ kotlinSerialization = "1.6.0"
 coil = "2.6.0"
 hilt = "2.51.1"
 hiltNavigationCompose = "1.2.0"
-dagger = "2.51.1"
+hiltKsp = "2.51.1"  # Added for KSP
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,35 +36,29 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
-# Room Database
+# Room Database (KSP)
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-androidx-room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room" }  # KSP
+androidx-room-ksp = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 # Navigation Compose
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
-# KSP for Room and Other Annotation Processing
-ksp = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
-
-# Retrofit for API Calls
+# Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLogging" }
 
-# Kotlinx Serialization for JSON
+# Kotlinx Serialization
 kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 
-# Coil for Image Loading
+# Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
-# Dagger Hilt
+# Hilt (KSP)
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-ksp = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltKsp" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
-dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
-dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
-
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

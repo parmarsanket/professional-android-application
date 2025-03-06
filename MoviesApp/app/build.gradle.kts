@@ -5,7 +5,7 @@ plugins {
 
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp.plugin)
-    //alias(libs.plugins.hilt.android.plugin)
+    alias(libs.plugins.hilt.android.plugin)
 }
 
 android {
@@ -42,27 +42,30 @@ android {
         compose = true
     }
 }
-android {
-    packaging {
-        resources {
-            excludes += "META-INF/gradle/incremental.annotation.processors"
-        }
-    }
-}
-configurations.all{
-    exclude(group = "com.intellij", module ="annotations"  )
-}
-
+//android {
+//    packaging {
+//        resources {
+//            excludes += "META-INF/gradle/incremental.annotation.processors"
+//        }
+//    }
+//}
+//configurations.all{
+//    exclude(group = "com.intellij", module ="annotations"  )
+//}
 dependencies {
-
+    // Core Android
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+
+    // Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,24 +74,29 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Room (Fixed)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.ksp)
+    ksp(libs.androidx.room.ksp)  // ⚠️ Removed duplicate implementation
 
+    // Navigation Compose
     implementation(libs.androidx.navigation.compose)
 
-    ksp(libs.androidx.room.ksp)
-
+    // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization)
     implementation(libs.okhttp.logging.interceptor)
 
+    // Kotlin Serialization
     implementation(libs.kotlin.serialization)
 
+    // Coil
     implementation(libs.coil)
 
-    implementation(libs.dagger)
-    ksp(libs.dagger.compiler)
-
+    // Hilt (KSP)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.ksp)  // ✅ Correct KSP usage
     implementation(libs.hilt.navigation.compose)
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+
 }

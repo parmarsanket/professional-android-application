@@ -1,6 +1,7 @@
 package com.example.moviesapp.movielist.data.remote.respnod
 
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,8 +13,6 @@ data class movieDto(
     val original_language: String,
     val original_title: String,
     val overview: String,
-    @Contextual
-    val popu: Any,
     val popularity: Double,
     val poster_path: String,
     val release_date: String,

@@ -16,11 +16,13 @@ object Retrofectory
         val json = Json {
             ignoreUnknownKeys = true // Ignores unknown fields in JSON response
             prettyPrint = true       // Formats JSON for readability (optional)
-            isLenient = true         // Allows relaxed JSON parsing
+            isLenient = true
+            coerceInputValues = true// Allows relaxed JSON parsing
+            explicitNulls = false
         }
         return Retrofit.Builder()
             .baseUrl(movieApi.Base_URL)
-            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
     }
 }
