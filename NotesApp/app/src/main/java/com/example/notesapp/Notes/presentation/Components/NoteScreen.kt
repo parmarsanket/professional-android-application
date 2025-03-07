@@ -29,12 +29,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.notesapp.Notes.NotesViewModel
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.notesapp.Notes.NotesEvent
+import com.example.notesapp.Notes.domain.model.Note
+import com.example.notesapp.Notes.util.NoteOrder
 
 @Composable
 fun NoteScreen(
@@ -44,6 +47,17 @@ fun NoteScreen(
     viewModel:NotesViewModel =  hiltViewModel()
 
 ) {
+    val notes = listOf(
+        Note("my notes1","this my content",1,1234),
+        Note("my notes1","this my content",1,12216),
+        Note("my notes1","this my content",1,0),
+        Note("my notes1","this my content",1,1),
+        Note("my notes1","this my content",1,223),
+        Note("my notes1","this my content",1,220),
+        Note("my notes1","this my content",1,120),
+        Note("my notes1","this my content",1,23),
+        Note("my notes1","this my content",1,100)
+    )
 
     val state = viewModel.state.value
     val scope = rememberCoroutineScope()
@@ -92,7 +106,17 @@ fun NoteScreen(
             }
             Spacer(modifier=Modifier.height(16.dp))
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(state.notes)
+//                items(state.notes)
+//                {
+//
+//                    NoteItem(
+//                        note=it,
+//                        modifier = Modifier.fillMaxWidth().clickable {  },
+//                        onDeleteClick = {viewModel.onEvent(NotesEvent.DeleteNote(note = it))}
+//                        )
+//                    Spacer(modifier=Modifier.height(16.dp))
+//                }
+                items(notes)
                 {
 
                     NoteItem(
@@ -102,6 +126,8 @@ fun NoteScreen(
                         )
                     Spacer(modifier=Modifier.height(16.dp))
                 }
+
+
             }
         }
     }

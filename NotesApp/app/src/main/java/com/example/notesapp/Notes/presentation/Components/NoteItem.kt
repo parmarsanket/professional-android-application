@@ -52,7 +52,7 @@ fun NoteItem(
             }
             clipPath(clipPath){
                 drawRoundRect(
-                    color = Color(note.color),
+                    color = Color.Cyan,//Color(note.color),
                     size = size,
                     cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
