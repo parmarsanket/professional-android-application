@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.plcoding.cryptotracker.core.Navigation.AdaptiveCoinListDetailPanal
 import com.plcoding.cryptotracker.core.presenttation.util.ObserverAsEvent
 import com.plcoding.cryptotracker.core.presenttation.util.toSting
 import com.plcoding.cryptotracker.crypto.presentation.coin_detail.CoinDetailScreen
@@ -36,33 +37,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             CryptoTrackerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val viewModel = koinViewModel<CoinListViewModel>()
-                    val state by viewModel.state.collectAsStateWithLifecycle()
-                    val context = LocalContext.current
-                    ObserverAsEvent(events = viewModel.events) {event->
-                        when(event)
-                    {
-                        is CoinListEvent.Error -> {
-                            Toast.makeText(context,event.error.toSting(context), Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                    }
-                    when{
-                        state.selectedCoin !=null -> CoinDetailScreen(state = state,
-                            modifier = Modifier.padding(innerPadding))
-                        else ->{
-                            CoinListScreen(
-                                state = state,
-                                modifier = Modifier.padding(innerPadding),
-                                onAction = viewModel::onAction
-                            )
-                        }
+                    AdaptiveCoinListDetailPanal(
+                        modifier = Modifier.padding(innerPadding)
+                    )
 
-                    }
-//                    CoinListScreen(
-//                        state = state,
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
                 }
             }
         }

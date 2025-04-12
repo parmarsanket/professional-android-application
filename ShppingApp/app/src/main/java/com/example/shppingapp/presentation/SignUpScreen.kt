@@ -152,6 +152,7 @@ fun SignUpScreen(modifier: Modifier = Modifier,navController: NavController) {
                                         "Successfully regester  ",
                                         Toast.LENGTH_SHORT
                                     ).show()
+
                                 }else {
                                     val message = task.exception?.message ?: "Signup failed"
                                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
